@@ -1,2 +1,2 @@
-[site]
-bucket = "./output"
+name = "platform-engineering"
+pages_build_output_dir = "./output"
