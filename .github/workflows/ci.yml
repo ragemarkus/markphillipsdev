@@ -35,3 +35,4 @@ jobs:
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         workingDirectory: ./output
+        main: ./output/index.html  # Specify the entry-point
