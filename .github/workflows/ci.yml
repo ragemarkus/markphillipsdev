@@ -28,11 +28,11 @@ jobs:
       run: pelican content
 
     - name: files check
-      run: ls -la -R
+      run: ls -R
 
     - name: Deploy to Cloudflare Pages
       uses: cloudflare/wrangler-action@v3
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         accountId: ${{ secrets.CF_ACCOUNT_ID }}
-        workingDirectory: ./output
+        workingDirectory: output
