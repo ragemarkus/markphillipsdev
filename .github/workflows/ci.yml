@@ -27,7 +27,11 @@ jobs:
     - name: Build Pelican site
       run: pelican content
 
+    - name: files check
+      run: ls -la -R
+
     - name: Deploy to Cloudflare Pages
       uses: cloudflare/wrangler-action@v3
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
+        workingDirectory: ./output
