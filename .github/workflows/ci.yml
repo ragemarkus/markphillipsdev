@@ -25,7 +25,7 @@ jobs:
         pip install pelican
 
     - name: Build Pelican site
-      run: pelican content
+      run: pelican content -s publishconf.py
 
     - name: files check
       run: ls -R
