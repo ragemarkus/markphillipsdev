@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   build:
@@ -27,6 +28,6 @@ jobs:
       run: pelican content
 
     - name: Deploy to Cloudflare Pages
-      uses: cloudflare/wrangler-action@1.3.0
+      uses: cloudflare/wrangler-action@3
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
