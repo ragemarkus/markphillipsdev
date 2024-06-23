@@ -1,4 +1,2 @@
-
-# Top-level configuration
-name = "markphillipsdev"
-main = "output/index"
+[site]
+bucket = "./output"
