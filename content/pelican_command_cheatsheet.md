@@ -1,3 +1,6 @@
+Title: Cheatsheet
+Date: 2024-06-23 19:48:36
+Category: Helpers
 
 # Pelican Command Cheatsheet
 
@@ -17,7 +20,7 @@
    ```bash
    pelican content -r
    ```
-   
+
 4. **Preview site**:
    ```bash
    pelican --listen
