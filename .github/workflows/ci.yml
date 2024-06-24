@@ -1,4 +1,4 @@
-name: Build and Deploy Pelican Site
+name: Build Pelican Site
 
 on:
   push:
@@ -32,9 +32,8 @@ jobs:
     - name: files check
       run: ls -R
 
-    - name: Deploy to Cloudflare Pages
-      uses: cloudflare/wrangler-action@v3
+    - name: Upload Output
+      uses: actions/upload-artifact@v2
       with:
-        apiToken: ${{ secrets.CF_API_TOKEN }}
-        accountId: ${{ secrets.CF_ACCOUNT_ID }}
-        command: pages deploy output --project-name=platform-engineering
+        name: pelican-output
+        path: output
