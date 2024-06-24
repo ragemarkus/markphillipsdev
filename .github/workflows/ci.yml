@@ -37,3 +37,22 @@ jobs:
       with:
         name: pelican-output
         path: output
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload Output
+        uses: actions/download-artifact@v2
+        with:
+          name: pelican-output
+          path: output
+
+      - name: files check
+        run: ls -R
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy output --project-name=platform-engineering --branch=production
