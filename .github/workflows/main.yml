@@ -24,15 +24,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pelican
+        pip install pelican markdown
 
     - name: Generate Static Files
       run: |
         echo "checking static files..."
-        git branch
-        pwd
-        ls -ls -R
-        pelican content -s publishconf.py --debug
+        pelican content -s publishconf.py 
 
     - name: Upload Output
       uses: actions/upload-artifact@v2
@@ -40,22 +37,22 @@ jobs:
         name: pelican-output
         path: output
 
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Upload Output
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: pelican-output
-  #         path: output
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload Output
+        uses: actions/download-artifact@v2
+        with:
+          name: pelican-output
+          path: output
 
-  #     - name: files check
-  #       run: ls -R
+      - name: files check
+        run: ls -R
 
-  #     - name: Deploy to Cloudflare Pages
-  #       uses: cloudflare/wrangler-action@v3
-  #       with:
-  #         apiToken: ${{ secrets.CF_API_TOKEN }}
-  #         accountId: ${{ secrets.CF_ACCOUNT_ID }}
-  #         command: pages deploy output --project-name=platform-engineering --branch=production
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy output --project-name=platform-engineering --branch=production
