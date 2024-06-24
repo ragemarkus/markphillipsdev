@@ -30,7 +30,7 @@ jobs:
       run: ls
 
     - name: Build Pelican site
-      run: pelican content -s publishconf.py -verbose
+      run: pelican content -s publishconf.py --verbose
 
     - name: files check
       run: ls
