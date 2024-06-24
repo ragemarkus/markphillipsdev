@@ -31,6 +31,7 @@ jobs:
         echo "checking static files..."
         git branch
         pwd
+        ls -ls -R
         pelican content -s publishconf.py --verbose
 
     - name: Upload Output
