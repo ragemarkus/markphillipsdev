@@ -35,4 +35,4 @@ jobs:
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         accountId: ${{ secrets.CF_ACCOUNT_ID }}
-        workingDirectory: output
+        command: pages deploy YOUR_DIST_FOLDER --project-name=platform-engineering
