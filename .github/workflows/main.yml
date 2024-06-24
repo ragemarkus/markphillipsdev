@@ -32,7 +32,7 @@ jobs:
         git branch
         pwd
         ls -ls -R
-        pelican content -s publishconf.py --verbose
+        pelican content -s publishconf.py --debug
 
     - name: Upload Output
       uses: actions/upload-artifact@v2
