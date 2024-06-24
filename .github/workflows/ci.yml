@@ -1,4 +1,4 @@
-name: Build Pelican Site
+name: Build
 
 on:
   push:

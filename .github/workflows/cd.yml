@@ -1,8 +1,8 @@
-name: Deploy Pelican Site
+name: Deploy
 
 on:
   workflow_run:
-    workflows: ["Build Pelican Site"]
+    workflows: ["Build"]
     types:
       - completed
 
